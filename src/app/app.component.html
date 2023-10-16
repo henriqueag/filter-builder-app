@@ -1,0 +1,13 @@
+<div class="container__center">
+
+    <app-filter-condition-node
+        [properties]="properties"
+        [filter]="filter"
+        (changeOperator)="onChangeOperator()"
+        (changeFilter)="onChangeFilter($event)"
+        (removeNode)="onRemoveNode()"
+    ></app-filter-condition-node>
+
+
+</div>
+

@@ -1,0 +1,52 @@
+<section class="filter__node__container">
+    <div class="filter__node__container__inner">
+        <div class="filter__node__container__info">
+            <section>
+                <span class="filter__node__property" (click)="tooglePropertyList()">
+                    {{ property.displayName }}
+                </span>
+                <div class="filter__node__property__list">
+                    <app-filter-property-list
+                        [properties]="properties"
+                        [showProperties]="showProperties"
+                        (f-click)="onSelectedProperty($event)"
+                    ></app-filter-property-list>
+                </div>
+            </section>
+
+            <section>
+                <span class="filter__node__operator" (click)="toogleOperatorList()">
+                    {{ filter.operator }}
+                </span>
+                <div class="filter__node__operator__list">
+                    <app-filter-operator-list
+                        [showOperators]="showOperators"
+                        (f-click)="onSelectedOperator($event)"
+                    ></app-filter-operator-list>
+                </div>
+            </section>
+
+            <section *ngIf="filter.operator !== 'IsNull' && filter.operator  !== 'IsNotNull'">
+                <span class="filter__node__value" (click)="toogleValueOrParameter()">
+                    {{ filter.values && filter.values.length > 0
+                        ? filter.values
+                            : filter.parameters && filter.parameters.length > 0
+                            ? filter.parameters
+                                : 'Valores ou Parâmetros' }}
+                </span>
+                <div class="filter__node__value__or__parameter">
+                    <app-filter-value-or-parameter
+                        [showValueOrParameter]="showValueOrParameter"
+                        [property]="property"
+                        [operator]="filter.operator"
+                        (add)="onAddValueOrParameter($event)"
+                    ></app-filter-value-or-parameter>
+                </div>
+            </section>
+
+            <button class="filter__node__remove__button" (click)="onRemoveNode()">
+                <span class="fa-solid fa-xmark"></span>
+            </button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,88 @@
+.filter__operator__list__container {
+    height: 0;
+    width: 160px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    overflow: hidden;
+    transform-origin: top;
+    transition: height 0.3s linear;
+}
+
+.show__filter__operator__list__container {
+    height: 280px;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+}
+
+.filter__operator__list__title {
+    text-align: center;
+    font-size: 16px;
+    padding: 8px 0;
+    color: #f8f9fa;
+    cursor: default;
+    background-color: #343a40;
+    margin: 0;
+}
+
+.filter__operator__list {
+    list-style: none;
+    overflow-y: auto;
+    max-height: calc(100% - 38px);
+    margin: 0;
+    padding: 0;
+    cursor: default;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        margin-top: 0 !important;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        margin-top: 2px !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #343a40;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    li {
+        padding: 10px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #dee2e6;
+        }
+
+        &:active {
+            background-color: #ced4da;
+        }
+    }
+}
+
+.filter__operator__list__operator__group {
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+
+    .filter__operator__list__operator__icon {
+        font-size: 12px;
+    }
+
+    .filter__operator__list__operator__name {
+        font-size: 14px;
+        display: block;
+        word-wrap: break-word;
+        margin-left: 8px;
+    }
+}
+
+.active,
+.active:hover {
+    background-color: #ced4da;
+}

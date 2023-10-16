@@ -1,0 +1,22 @@
+<div
+    class="filter__operator__list__container"
+    [class.show__filter__operator__list__container]="showOperators"
+>
+    <h3 class="filter__operator__list__title">Operadores</h3>
+    <ul class="filter__operator__list" #operatorList>
+        <li
+            *ngFor="let operator of operators"
+            [class.active]="operator.operator === activeOperator.operator"
+            (click)="onSelectedOperator(operator)"
+        >
+            <div class="filter__operator__list__operator__group">
+                <span class="filter__operator__list__operator__icon">
+                    <i [class]="operator.icon"></i>
+                </span>
+                <span class="filter__operator__list__operator__name">
+                    {{operator.operator}}
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>

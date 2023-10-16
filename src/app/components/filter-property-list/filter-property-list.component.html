@@ -1,0 +1,17 @@
+<div
+    class="filter__property__list__container"
+    [class.show__filter__property__list__container]="showProperties"
+>
+    <h3 class="filter__property__list__title">Propriedades</h3>
+    <ul class="filter__property__list__properties" #propertyList>
+        <li
+            *ngFor="let property of properties"
+            [class.active]="property.name === activeProperty.name"
+            (click)="onSelectedProperty(property)"
+        >
+            <span class="filter__property__list__property__display__name">
+                {{ property.displayName }}
+            </span>
+        </li>
+    </ul>
+</div>
